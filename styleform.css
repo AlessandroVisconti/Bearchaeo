@@ -1,0 +1,194 @@
+*, :after, :before {
+    box-sizing: border-box
+}
+
+body {
+    padding: 1em;
+    font-size: .9em;
+    color: #696969
+}
+
+h4 {
+    color: #c72e2e;
+    font-size: 17px
+}
+
+input, select, select option {
+    width: 100%;
+    padding: 1em;
+    line-height: 1.4;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    transition: all .2s ease-in-out
+}
+
+input:focus {
+    outline: 0;
+    border-color: #c72e2e
+}
+
+select {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-radius: 3px
+}
+
+input:checked+label:before, select:active, select:focus {
+    background-color: #fff;
+    border-color: #c72e2e
+}
+
+input[type=submit] {
+    background-color: #c72e2e;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 1em;
+    cursor: pointer;
+    margin-top: .4em;
+    font-weight: 700
+}
+
+textarea {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: 6em;
+    box-sizing: border-box;
+    resize: none;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+    border: 1px solid #e5e5e5;
+    color: #333;
+    line-height: 1.3em;
+    padding: 10px 10px;
+    overflow: hidden
+}
+
+textarea:focus {
+    outline: 0;
+    border-color: #c72e2e;
+    transition: all .35s ease-in-out;
+}
+
+select {
+    height: 3.4em;
+    line-height: 2
+}
+
+select:active, select:focus {
+    outline: 0
+}
+
+select option {
+    background-color: #fff;
+    color: #696969
+}
+
+.input-group {
+    margin-bottom: .7em
+}
+
+.input-group:after, .input-group:before {
+    content: "";
+    display: table
+}
+
+.input-group:after {
+    clear: both
+}
+
+.container {
+    max-width: 42em;
+    padding: 1em 3em 2em 3em;
+    margin: 0 auto;
+    background-color: #fff5f5
+}
+
+.row:after, .row:before {
+    content: "";
+    display: table
+}
+
+.row:after {
+    clear: both
+}
+
+.col-half {
+    padding-right: 15px;
+    float: left;
+    width: 50%
+}
+
+#etichetta {
+    text-align: left;
+    padding-left: .85em;
+    color: #696969;
+}
+
+#nopad, #fields {
+    padding-right: 0;
+}
+
+ul {
+    list-style-type: none;
+    justify-content: left;
+    padding-left: 0px;
+}
+
+li, #pointer {
+    cursor: pointer;
+}
+
+#hidden1 {
+    display: none;
+}
+
+.adder {
+    background-color: #ffc9c4;
+    border-radius: 3px;
+    border: 0px;
+	cursor:pointer;
+	color:#696969;
+	font-size:12px;
+	padding:3px 8px;
+}
+
+.remover {
+    background-color: #e5e5e5;
+    border-radius: 3px;
+    border: 0px;
+	cursor:pointer;
+	color:#696969;
+	font-size:12px;
+	padding:3px 8px;
+}
+
+.adder:hover {
+    background-color: #ffb9b3;
+    transition: .35s;
+}
+
+.remover:hover {
+    background-color: #d5d5d5;
+    transition: .35s all;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+            appearance: textfield;
+}
+
+@media only screen and (max-width:540px) {
+    .col-half {
+        width: 100%;
+        padding-right: 0
+    }
+}
