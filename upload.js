@@ -1,3 +1,17 @@
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 //show additional fields function
 function unhide(n) {
     var btn = document.getElementById('btn'+n);
@@ -50,7 +64,25 @@ mioForm.addEventListener('submit', function(creation) {
         var otheracronyms4 = document.getElementById("acronym4").value
     }
     var trench = document.getElementById("trench").value
+    if (document.getElementById("trench1").value != null){
+        var othertrench = document.getElementById("trench1").value
+    }if (document.getElementById("trench2").value != null){
+        var othertrench2 = document.getElementById("trench2").value
+    }if (document.getElementById("trench3").value != null){
+        var othertrench3 = document.getElementById("trench3").value
+    }if (document.getElementById("trench4").value != null){
+        var othertrench4 = document.getElementById("trench4").value
+    }
     var sector = document.getElementById("sector").value
+    if (document.getElementById("sector1").value != null){
+        var othersector = document.getElementById("sector1").value
+    }if (document.getElementById("sector2").value != null){
+        var othersector2 = document.getElementById("sector2").value
+    }if (document.getElementById("sector3").value != null){
+        var othersector3 = document.getElementById("sector3").value
+    }if (document.getElementById("sector4").value != null){
+        var othersector4 = document.getElementById("sector4").value
+    }
     var definition = document.getElementById("definition").value
     
     //description
@@ -64,7 +96,7 @@ mioForm.addEventListener('submit', function(creation) {
     var cuts = document.getElementById("cuts").value
 
     //datation
-
+    var datingelem = document.getElementById("datingelem").value
 
     //sampling
     var stratreliability = document.getElementById("stratreliability").value
@@ -134,6 +166,42 @@ mioForm.addEventListener('submit', function(creation) {
                 "@value": new String(trench)
             }
         ],
+        "suReg:hasOtherTrench_f": [    //altre trench
+            {
+                "type": "literal",
+                "property_id": 251,
+                "property_label": "TRENCH",
+                "is_public": true,
+                "@value": new String(othertrench)
+            }
+        ],
+        "suReg:hasOtherTrench2_f": [      //altra trench
+            {
+                "type": "literal",
+                "property_id": 251,
+                "property_label": "TRENCH",
+                "is_public": true,
+                "@value": new String(othertrench2)
+            }
+        ],
+        "suReg:hasOtherTrench3_f": [      //altra trench
+            {
+                "type": "literal",
+                "property_id": 251,
+                "property_label": "TRENCH",
+                "is_public": true,
+                "@value": new String(othertrench3)
+            }
+        ],
+        "suReg:hasOtherTrench4_f": [     //altra trench
+            {
+                "type": "literal",
+                "property_id": 251,
+                "property_label": "TRENCH",
+                "is_public": true,
+                "@value": new String(othertrench4)
+            }
+        ],
         "suReg:hasSector_f": [
             {
                 "type": "literal",
@@ -141,6 +209,42 @@ mioForm.addEventListener('submit', function(creation) {
                 "property_label": "SECTOR",
                 "is_public": true,
                 "@value": new String(sector)
+            }
+        ],
+        "suReg:hasOtherSector_f": [
+            {
+                "type": "literal",
+                "property_id": 248,
+                "property_label": "SECTOR",
+                "is_public": true,
+                "@value": new String(othersector)
+            }
+        ],
+        "suReg:hasOtherSector2_f": [
+            {
+                "type": "literal",
+                "property_id": 248,
+                "property_label": "SECTOR",
+                "is_public": true,
+                "@value": new String(othersector2)
+            }
+        ],
+        "suReg:hasOtherSector3_f": [
+            {
+                "type": "literal",
+                "property_id": 248,
+                "property_label": "SECTOR",
+                "is_public": true,
+                "@value": new String(othersector3)
+            }
+        ],
+        "suReg:hasOtherSector4_f": [
+            {
+                "type": "literal",
+                "property_id": 248,
+                "property_label": "SECTOR",
+                "is_public": true,
+                "@value": new String(othersector4)
             }
         ],
         "suReg:hasDefinition_f": [
@@ -259,13 +363,13 @@ mioForm.addEventListener('submit', function(creation) {
         "suDat:hasDatingElement_f": [
             {
                 "type": "resource:item",
-                "property_id": "187",
+                "property_id": 187,
                 "property_label": "DATING ELEMENT",
                 "is_public": true,
-                "@id": "url del dating element",
+                "@id": new String(datingelem),
                 "value_resource_id": 716, //id
                 "value_resource_name": "items",
-                "display_title": "AF 129" //corrisp a item id 716
+                "display_title": "titolo oggetto con id 682" //corrisp a item id 716
             }
         ]
     }
@@ -365,7 +469,7 @@ mioForm.addEventListener('submit', function(creation) {
             return risposta;
         }
 
-        async function postID(rispostaReg, rispostaDes) {
+        async function postID(rispostaReg, rispostaDes, rispostaStrat, rispostaDat, rispostaSam) {
             var reg_id = rispostaReg['o:id'];
             var reg_url = rispostaReg['@id'];
             var des_id = rispostaDes['o:id'];

@@ -19,24 +19,22 @@ input, select, select option {
     line-height: 1.4;
     background-color: #fff;
     border: 1px solid #e5e5e5;
-    border-radius: 3px;
     -webkit-transition: .2s ease-in-out;
     -moz-transition: .2s ease-in-out;
-    -o-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
-    transition: all .2s ease-in-out
+    transition: all .2s ease-in-out;
 }
 
 input:focus {
     outline: 0;
-    border-color: #c72e2e
+    border-color: #c72e2e;
+    outline: none;
 }
 
 select {
     display: inline-block;
     width: 100%;
     text-align: center;
-    border-radius: 3px
 }
 
 input:checked+label:before, select:active, select:focus {
@@ -55,6 +53,10 @@ input[type=submit] {
     font-weight: 700
 }
 
+input[type=date] {
+    color: #696969;
+}
+
 textarea {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 100%;
@@ -62,7 +64,6 @@ textarea {
     box-sizing: border-box;
     resize: none;
     background: #fff;
-    border-radius: 3px;
     font-size: 14px;
     border: 1px solid #e5e5e5;
     color: #333;
@@ -92,7 +93,9 @@ select option {
 }
 
 .input-group {
-    margin-bottom: .7em
+    margin-bottom: .7em;
+    display: flex;
+    flex-direction:row;
 }
 
 .input-group:after, .input-group:before {
@@ -105,7 +108,7 @@ select option {
 }
 
 .container {
-    max-width: 42em;
+    max-width: 55em;
     padding: 1em 3em 2em 3em;
     margin: 0 auto;
     background-color: #fff5f5
@@ -152,22 +155,20 @@ li, #pointer {
 
 .adder {
     background-color: #ffc9c4;
-    border-radius: 3px;
     border: 0px;
-	cursor:pointer;
-	color:#696969;
-	font-size:12px;
-	padding:3px 8px;
+    cursor:pointer;
+    color:#696969;
+    font-size:12px;
+    padding:3px 8px;
 }
 
 .remover {
     background-color: #e5e5e5;
-    border-radius: 3px;
     border: 0px;
-	cursor:pointer;
-	color:#696969;
-	font-size:12px;
-	padding:3px 8px;
+    cursor:pointer;
+    color:#696969;
+    font-size:12px;
+    padding:3px 8px;
 }
 
 .adder:hover {
@@ -182,8 +183,43 @@ li, #pointer {
 
 input[type="number"] {
     -webkit-appearance: textfield;
-       -moz-appearance: textfield;
-            appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.accordion {
+    background-color: #ffc9c4;
+    color: #696969;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: .9em;
+    transition: 0.4s;
+}
+
+.active {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: " + Expand";
+    color: #777;
+    float: left;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: " - Collapse";
+}
+
+.panel {
+    padding: 0 2px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
 @media only screen and (max-width:540px) {
